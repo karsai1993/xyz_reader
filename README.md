@@ -15,6 +15,12 @@ Through this project, you will:
 - Separate an interface into surfaces.
 - Effectively use transitions and motion.
 
+# How Will I Complete this Project?
+You will improve an app for this project:
+- XYZ Reader: A mock RSS feed reader featuring banner photos and headlines. Download the code here.
+The app is currently functional, and work in most cases for most users.
+Your job will be to take the user feedback in the UI Review node, and implement changes that will improve the UI and make it conform to Material Design.
+
 ## Required Tasks
 - Download a zip file of the app.
 - Read the UI Review in the next node.
