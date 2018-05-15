@@ -119,17 +119,17 @@ public class ArticleDetailActivity extends ActionBarActivity
 
         // Select the start ID
         if (mStartId > 0) {
-            mCursor.moveToFirst();
             // TODO: optimize
-            while (!mCursor.isAfterLast()) {
-                if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
-                    final int position = mCursor.getPosition();
-                    mPager.setCurrentItem(position, false);
-                    break;
+            if (mCursor != null) {
+                while (mCursor.moveToNext()) {
+                    if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
+                        final int position = mCursor.getPosition();
+                        mPager.setCurrentItem(position, false);
+                        break;
+                    }
                 }
-                mCursor.moveToNext();
+                mStartId = 0;
             }
-            mStartId = 0;
         }
     }
 
