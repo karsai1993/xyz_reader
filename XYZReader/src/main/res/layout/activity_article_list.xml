@@ -17,16 +17,16 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:scrollbarStyle="outsideOverlay"
-            android:paddingTop="116dp"
+            android:paddingTop="@dimen/main_padding_top"
             android:paddingLeft="@dimen/list_side_margin"
             android:paddingRight="@dimen/list_side_margin"
-            android:paddingBottom="28dp" />
+            android:paddingBottom="@dimen/main_padding_bottom" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <FrameLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
+        android:layout_height="wrap_content"
         android:background="?colorPrimary"
         android:elevation="8dp">
 
@@ -47,5 +47,4 @@
 
         </android.support.v7.widget.Toolbar>
     </FrameLayout>
-
 </android.support.design.widget.CoordinatorLayout>

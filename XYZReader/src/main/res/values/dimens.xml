@@ -8,4 +8,12 @@
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
 
+    <dimen name="small_elevation">4dp</dimen>
+    <dimen name="medium_elevation">8dp</dimen>
+
+    <dimen name="distance">8dp</dimen>
+
+    <dimen name="main_padding_top">60dp</dimen>
+    <dimen name="main_padding_bottom">28dp</dimen>
+
 </resources>
