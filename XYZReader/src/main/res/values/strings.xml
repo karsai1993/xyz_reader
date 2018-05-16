@@ -9,4 +9,6 @@
 
     <string name="up">Up</string>
 
+    <string name="detail_image_content_description">DetailImage</string>
+
 </resources>

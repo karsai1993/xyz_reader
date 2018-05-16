@@ -16,4 +16,6 @@
     <dimen name="main_padding_top">60dp</dimen>
     <dimen name="main_padding_bottom">28dp</dimen>
 
+    <dimen name="detail_image_height">200dp</dimen>
+
 </resources>
