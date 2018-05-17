@@ -4,14 +4,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        style="@style/Theme.Design.Light.NoActionBar">
 
-        <com.example.xyzreader.ui.ObservableScrollView
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:elevation="@dimen/app_bar_elevation"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed" >
+
+                <ImageView
+                    android:id="@+id/photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"
+                    android:contentDescription="@string/detail_image_content_description"
+                    app:layout_collapseMode="parallax"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:minHeight="?attr/actionBarSize"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_collapseMode="pin" >
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTheme"
+                        android:textStyle="bold|italic"
+                        android:textSize="@dimen/detail_text_size"
+                        android:gravity="center"/>
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
             android:id="@+id/scrollview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
             <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:orientation="vertical"
@@ -19,15 +67,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="@dimen/detail_card_max_width"
-                android:background="#fff"
-                android:elevation="2dp"
-                android:layout_marginTop="@dimen/detail_card_top_margin">
+                android:elevation="2dp">
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#333"
                     android:layout_gravity="bottom"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/detail_inner_horiz_margin"
@@ -38,22 +83,23 @@
 
                     <TextView
                         android:id="@+id/article_title"
-                        style="?android:attr/textAppearanceLarge"
+                        style="@style/AppTheme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold|italic"
                         android:textSize="@dimen/detail_title_text_size"
                         android:lineSpacingMultiplier="0.9" />
 
                     <TextView
                         android:id="@+id/article_byline"
-                        style="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"
+                        style="@style/AppTheme"
+                        android:textColor="@color/colorAccent"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#8fff" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <TextView
@@ -70,52 +116,9 @@
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
 
-        </com.example.xyzreader.ui.ObservableScrollView>
+        </android.support.v4.widget.NestedScrollView>
 
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                android:background="?attr/colorPrimary">
-
-                <android.support.design.widget.CollapsingToolbarLayout
-                    android:id="@+id/collapsing_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed"
-                    android:fitsSystemWindows="true"
-                    app:expandedTitleMarginStart="48dp"
-                    app:expandedTitleMarginEnd="64dp"
-                    app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title">
-
-                    <android.support.v7.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="?attr/colorPrimary"
-                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                        app:layout_collapseMode="pin"/>
-
-                    <ImageView
-                        android:id="@+id/photo"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/detail_image_height"
-                        android:scaleType="centerCrop"
-                        android:fitsSystemWindows="true"
-                        android:contentDescription="@string/detail_image_content_description"
-                        app:layout_collapseMode="parallax"/>
-
-                </android.support.design.widget.CollapsingToolbarLayout>
-
-            </android.support.design.widget.AppBarLayout>
-
-        </android.support.design.widget.CoordinatorLayout>
-    </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
         android:stateListAnimator="@anim/fab_state_list_anim"
